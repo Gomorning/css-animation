@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation</title>
+</head>
+<style>
+  .main {
+    margin: 0 auto;
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* animation-01 小球错位摆动*/
+  .main .animation {
+    width: 100px;
+    height: 100px;
+  }
+
+  .animation-01 {
+    position: relative;
+  }
+
+  @keyframes animation-01 {
+
+    0%,
+    100% {
+      transform: scale(0);
+    }
+
+    50% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+  }
+
+  .animation-01 .nest {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: black;
+    opacity: 0.6;
+  }
+
+  .animation-01 .nest:nth-child(1) {
+    transform: scale(1);
+    animation: animation-01 2s infinite;
+
+  }
+
+
+  .animation-01 .nest:nth-child(2) {
+    transform: scale(1);
+    animation: animation-01 2s infinite;
+    animation-delay: -1s;
+  }
+
+
+
+
+
+  /* animation-02 加载条 */
+  .animation-02 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .animation-02 div {
+    height: 70%;
+  }
+
+  .animation-02 div span {
+    display: inline-block;
+    width: 10px;
+    height: 100%;
+    background-color: black;
+    animation: animation-02 1s infinite;
+  }
+
+
+  .animation-02 div span:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .animation-02 div span:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .animation-02 div span:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  .animation-02 div span:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+
+
+
+  @keyframes animation-02 {
+
+    0%,
+    100% {
+      transform: scaleY(1);
+    }
+
+    30%,
+    75% {
+      transform: scaleY(0.4);
+    }
+  }
+
+
+  /* 翻转 */
+  .animation-03 span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background: black;
+    /* transform: perspective(180px) rotateX(deg); */
+    animation: animation-03 2s infinite;
+  }
+
+  @keyframes animation-03 {
+
+    0% {
+      transform: perspective(180px) rotateX(0deg);
+      background: black;
+    }
+
+
+    40% {
+      transform: perspective(180px) rotateX(90deg);
+      background: black;
+    }
+
+    41% {
+      transform: perspective(180px) rotateX(90deg);
+      background: #189;
+    }
+
+
+    40% {
+      transform: perspective(180px) rotateX(180deg);
+      background: black;
+    }
+
+
+
+    100% {
+      transform: perspective(180px) rotateX(180deg);
+      background: black
+    }
+
+
+  }
+</style>
+
+<body>
+  <div class="main">
+    <!--01 错位摆动 -->
+    <div class="animation animation-01">
+      <span class="nest"></span>
+      <span class="nest"></span>
+    </div>
+    <div class="animation animation-02">
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="animation animation-03">
+      <span></span>
+    </div>
+    <div class="animation animation-01"></div>
+    <div class="animation animation-01"></div>
+  </div>
+</body>
+
+</html>
